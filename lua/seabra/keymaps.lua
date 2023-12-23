@@ -57,5 +57,3 @@ keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 
 -- Go to references
 keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-
-

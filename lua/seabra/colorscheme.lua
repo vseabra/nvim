@@ -7,4 +7,4 @@ if not status_ok then
 end
 
 vim.api.nvim_set_hl(0, "LeapLabelPrimary", { link = "Type" })
-vim.api.nvim_set_hl(0, 'LeapBackdrop', { link = 'VirtualTextInfo' })
+vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "VirtualTextInfo" })
