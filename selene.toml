@@ -1,2 +1,4 @@
+[config]
+std="lua51+vim"
 [lints]
 mixed_table = "allow"
