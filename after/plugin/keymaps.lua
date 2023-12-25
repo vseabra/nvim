@@ -57,3 +57,7 @@ keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 
 -- Go to references
 keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+
+vim.keymap.set("n", "s", require('substitute').operator, { noremap = true })
+vim.keymap.set("n", "ss", require('substitute').line, { noremap = true })
+vim.keymap.set("x", "s", require('substitute').visual, { noremap = true })

@@ -14,6 +14,7 @@ return {
         -- go
         null_ls.builtins.diagnostics.golangci_lint,
         null_ls.builtins.formatting.goimports_reviser,
+        null_ls.builtins.formatting.goimports,
 
         --json
         null_ls.builtins.diagnostics.jsonlint,

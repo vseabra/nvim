@@ -22,9 +22,14 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- Set scrolloff to 0 for terminal buffers
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "terminal",
-  command = "setlocal scrolloff=0",
+vim.api.nvim_create_autocmd({"TermOpen"}, {
+  pattern = {"zsh"},
+  callback = function()
+    vim.opt_local.scrolloff = 0
+    vim.opt_local.number = false
+    vim.opt_local.relativenumber = false
+    vim.cmd("startinsert")
+  end
 })
 
 -- attach lsp signature on lsp attach

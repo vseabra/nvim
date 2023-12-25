@@ -48,7 +48,7 @@ return {
 				show_duplicate_prefix = false,
 				persist_buffer_sort = true,
 				move_wraps_at_ends = false,
-				separator_style = "thin",
+				separator_style = "thick",
 				enforce_regular_tabs = true,
 				always_show_bufferline = true,
 				hover = {
