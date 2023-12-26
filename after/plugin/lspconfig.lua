@@ -1,21 +1,21 @@
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-local lspconfig = require('lspconfig')
+local lspconfig = require("lspconfig")
 
-lspconfig.lua_ls.setup {
+lspconfig.lua_ls.setup({
   settings = {
     Lua = {
       runtime = {
         -- Tell the language server which version of Lua you're using
         -- (most likely LuaJIT in the case of Neovim)
-        version = 'LuaJIT',
+        version = "LuaJIT",
       },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
         globals = {
-          'vim',
-          'require'
+          "vim",
+          "require",
         },
       },
       workspace = {
@@ -28,16 +28,17 @@ lspconfig.lua_ls.setup {
       },
     },
   },
-}
+})
 
 lspconfig.gopls.setup({})
 lspconfig.jsonls.setup({
   capabilities = capabilities,
 })
 
-require("typescript-tools").setup({
+lspconfig.tsserver.setup({
   on_attach = function(client)
-    client.server_capabilities.document_formatting = false
+    client.resolved_capabilities.document_formatting = false
+    client.server_capabilities.documentFormattingProvider = false
     client.server_capabilities.documentRangeFormattingProvider = false
   end,
 })

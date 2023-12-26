@@ -22,15 +22,24 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- Set scrolloff to 0 for terminal buffers
-vim.api.nvim_create_autocmd({"TermOpen"}, {
-  pattern = {"zsh"},
+vim.api.nvim_create_autocmd({ "TermOpen" }, {
+  pattern = { "zsh" },
   callback = function()
     vim.opt_local.scrolloff = 0
     vim.opt_local.number = false
     vim.opt_local.relativenumber = false
-    vim.cmd("startinsert")
-  end
+  end,
 })
+
+-- https://www.reddit.com/r/neovim/comments/16hiz32/help_for_disappearing_statusline/
+-- vim.api.nvim_create_autocmd({ "ModeChanged" }, {
+--   pattern = { "*" },
+--   callback = function()
+--     vim.schedule(function()
+--       vim.cmd("redraw")
+--     end)
+--   end,
+-- })
 
 -- attach lsp signature on lsp attach
 vim.api.nvim_create_autocmd({ "LspAttach" }, {
@@ -38,8 +47,18 @@ vim.api.nvim_create_autocmd({ "LspAttach" }, {
     require("lsp_signature").setup({
       bind = false,
       handler_opts = {
-        border = "none"
+        border = "none",
       },
     })
   end,
+})
+
+-- run linters on save and when leaving insert mode
+vim.api.nvim_create_autocmd({ "InsertLeave", "BufWritePost" }, {
+    callback = function()
+        local lint_status, lint = pcall(require, "lint")
+        if lint_status then
+            lint.try_lint()
+        end
+    end,
 })
