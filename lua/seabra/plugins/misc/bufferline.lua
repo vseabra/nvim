@@ -12,15 +12,9 @@ return {
 				pick = { italic = false },
 				buffer_selected = {
 					bold = true,
-					italic = false,
-					fg = require("seabra.colors").everforest.hard_background.dark.bg0,
-					bg = require("seabra.colors").everforest.hard_background.dark.green,
 				},
 				numbers_selected = {
 					bold = true,
-					italic = false,
-					fg = require("seabra.colors").everforest.hard_background.dark.bg0,
-					bg = require("seabra.colors").everforest.hard_background.dark.green,
 				},
 			},
 			options = {

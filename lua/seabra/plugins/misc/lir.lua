@@ -2,7 +2,6 @@ return {
   "tamago324/lir.nvim",
   config = function()
     local actions = require("lir.actions")
-    local mark_actions = require("lir.mark.actions")
     local clipboard_actions = require("lir.clipboard.actions")
 
     require("lir").setup({
@@ -28,11 +27,6 @@ return {
         ["Y"] = actions.yank_path,
         ["."] = actions.toggle_show_hidden,
         ["D"] = actions.delete,
-
-        ["J"] = function()
-          mark_actions.toggle_mark()
-          vim.cmd("normal! j")
-        end,
         ["C"] = clipboard_actions.copy,
         ["X"] = clipboard_actions.cut,
         ["P"] = clipboard_actions.paste,
@@ -59,7 +53,7 @@ return {
     require("nvim-web-devicons").set_icon({
       lir_folder_icon = {
         icon = "",
-        color = "#7ebae4",
+        color = require("seabra.colors").everforest.hard_background.dark.blue,
         name = "LirFolderNode",
       },
     })

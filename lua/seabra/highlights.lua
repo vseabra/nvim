@@ -1,46 +1,53 @@
 local colors = require("seabra.colors")
+local everforest = colors.everforest.hard_background
 
 local Highlights = {
-	TelescopeBorder = { fg = colors.everforest.hard_background.dark.bg0 },
+  -- TELESCOPE
+	TelescopeBorder = { fg = everforest.dark.bg0 },
 	TelescopePreviewBorder = {
-		fg = colors.everforest.hard_background.dark.bg0,
-		bg = colors.everforest.hard_background.dark.bg_dim,
+		fg = everforest.dark.bg0,
+		bg = everforest.dark.bg_dim,
 	},
 	TelescopeResultsTitle = {
 		bold = true,
-		fg = colors.everforest.hard_background.dark.bg_dim,
-		bg = colors.everforest.hard_background.dark.bg_dim,
+		fg = everforest.dark.bg_dim,
+		bg = everforest.dark.bg_dim,
 	},
 	TelescopeResultsBorder = {
-		fg = colors.everforest.hard_background.dark.bg0,
-		bg = colors.everforest.hard_background.dark.bg_dim,
+		fg = everforest.dark.bg0,
+		bg = everforest.dark.bg_dim,
 	},
 	TelescopePreviewTitle = {
 		bold = true,
-		fg = colors.everforest.hard_background.dark.bg_dim,
-		bg = colors.everforest.hard_background.dark.yellow,
+		fg = everforest.dark.bg_dim,
+		bg = everforest.dark.yellow,
 	},
 	TelescopePromptTitle = {
 		bold = true,
-		fg = colors.everforest.hard_background.dark.bg_dim,
-		bg = colors.everforest.hard_background.dark.green,
+		fg = everforest.dark.bg_dim,
+		bg = everforest.dark.green,
 	},
 	TelescopePromptBorder = {
-		fg = colors.everforest.hard_background.dark.bg0,
-		bg = colors.everforest.hard_background.dark.bg2,
+		fg = everforest.dark.bg0,
+		bg = everforest.dark.bg2,
 	},
 	TelescopePromptNormal = {
 		bold = true,
-		bg = colors.everforest.hard_background.dark.bg2,
+		bg = everforest.dark.bg2,
 	},
 	TelescopeResultsNormal = {
-		bg = colors.everforest.hard_background.dark.bg_dim,
+		bg = everforest.dark.bg_dim,
 	},
   TelescopePreviewNormal = {
-		bg = colors.everforest.hard_background.dark.bg_dim,
+		bg = everforest.dark.bg_dim,
 	},
-  TelescopeSelection = { bold = true, fg = colors.everforest.hard_background.dark.bg0, bg = colors.everforest.hard_background.dark.fg },
-  TelescopeMatching = { bold = true, fg = colors.everforest.hard_background.dark.red },
+  TelescopeSelection = { bold = false, fg = everforest.dark.bg0, bg = colors.everforest.hard_background.dark.fg },
+  TelescopeMatching = { bold = true },
+  -- LIR
+  LirFloatNormal = {bg = everforest.dark.bg_dim, fg = colors.everforest.hard_background.dark.fg},
+  LirFloatCurdirWindowNormal = { bold = true, bg = everforest.dark.bg2 },
+  LirFloatCurdirWindowDirName = { bold = true, fg = everforest.dark.green },
+  LirFloatCursorLine = { bold = false, fg = everforest.dark.bg0, bg = colors.everforest.hard_background.dark.fg },
 
 	-- TelescopeMatching = { fg = colors.flamingo },
 	-- TelescopeSelection = { fg = colors.text, bg = colors.surface0, bold = true },
