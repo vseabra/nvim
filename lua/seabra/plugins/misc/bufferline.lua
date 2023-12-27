@@ -5,16 +5,27 @@ return {
 		local bufferline = require("bufferline")
 		bufferline.setup({
 			highlights = {
-				buffer_selected = { italic = false },
 				diagnostic_selected = { italic = false },
 				hint_selected = { italic = false },
 				pick_selected = { italic = false },
 				pick_visible = { italic = false },
 				pick = { italic = false },
+				buffer_selected = {
+					bold = true,
+					italic = false,
+					fg = require("seabra.colors").everforest.hard_background.dark.bg0,
+					bg = require("seabra.colors").everforest.hard_background.dark.green,
+				},
+				numbers_selected = {
+					bold = true,
+					italic = false,
+					fg = require("seabra.colors").everforest.hard_background.dark.bg0,
+					bg = require("seabra.colors").everforest.hard_background.dark.green,
+				},
 			},
 			options = {
 				mode = "buffers", -- set to "tabs" to only show tabpages instead
-				style_preset = bufferline.style_preset.minimal,
+				style_preset = { bufferline.style_preset.no_italic, bufferline.style_preset.minimal },
 				themable = true, -- allows highlight groups to be overriden i.e. sets highlights as default
 				numbers = "buffer_id",
 				close_command = "bdelete! %d", -- can be a string | function, | false see "Mouse actions"
@@ -22,7 +33,7 @@ return {
 				left_mouse_command = "buffer %d", -- can be a string | function, | false see "Mouse actions"
 				middle_mouse_command = nil, -- can be a string | function, | false see "Mouse actions"
 				indicator = {
-          icon = '▎', -- this should be omitted if indicator style is not 'icon'
+					icon = "▎", -- this should be omitted if indicator style is not 'icon'
 					style = "icon",
 				},
 				buffer_close_icon = "󰅖",
@@ -48,9 +59,18 @@ return {
 				show_duplicate_prefix = false,
 				persist_buffer_sort = true,
 				move_wraps_at_ends = false,
-				separator_style = "thick",
+				separator_style = "thin",
 				enforce_regular_tabs = true,
 				always_show_bufferline = true,
+				offsets = {
+					{
+						filetype = "sfm",
+						text = "EXPLORER",
+						highlight = "Directory",
+						separator = true, -- use a "true" to enable the default, or set your own character
+					},
+				},
+
 				hover = {
 					enabled = true,
 					delay = 200,
