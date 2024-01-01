@@ -5,6 +5,7 @@ wk.register({
     name = "search",
     f = { "<cmd>Telescope find_files<cr>", "search file by name" },
     t = { "<cmd>Telescope live_grep<cr>", "search file by text" },
+    m = { "<cmd>Easypick make_targets<cr>", "search make target" },
   },
   l = {
     name = "lsp",

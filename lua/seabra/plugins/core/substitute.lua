@@ -1,7 +1,7 @@
 return {
     "gbprod/substitute.nvim",
     opts = {
-      yank_substituted_text = true,
+      yank_substituted_text = false,
         -- your configuration comes here
         -- or leave it empty to use the default settings
         -- refer to the configuration section below

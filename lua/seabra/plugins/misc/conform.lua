@@ -7,7 +7,7 @@ return {
 				python = { "isort", "black" },
 				javascript = { { "prettier" } },
 				typescript = { { "prettier" } },
-				go = { "goimports-reviser", "gofmt" },
+				go = { "goimports-reviser", "goimports", "gofmt" },
 				yaml = { "prettier" },
 			},
 		})

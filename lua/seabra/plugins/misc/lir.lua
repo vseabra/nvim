@@ -26,10 +26,10 @@ return {
         ["@"] = actions.cd,
         ["Y"] = actions.yank_path,
         ["."] = actions.toggle_show_hidden,
-        ["D"] = actions.delete,
-        ["C"] = clipboard_actions.copy,
+        ["x"] = actions.delete,
+        ["y"] = clipboard_actions.copy,
         ["X"] = clipboard_actions.cut,
-        ["P"] = clipboard_actions.paste,
+        ["p"] = clipboard_actions.paste,
       },
       float = {
         winblend = 0,
