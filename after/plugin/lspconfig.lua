@@ -31,6 +31,8 @@ lspconfig.lua_ls.setup({
 })
 
 lspconfig.gopls.setup({})
+lspconfig.rust_analyzer.setup({})
+
 lspconfig.jsonls.setup({
   capabilities = capabilities,
 })

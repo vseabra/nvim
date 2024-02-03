@@ -8,7 +8,9 @@ return {
 				javascript = { { "prettier" } },
 				typescript = { { "prettier" } },
 				go = { "goimports-reviser", "goimports", "gofmt" },
+				rust = { "rustfmt" },
 				yaml = { "prettier" },
+				csharp = { "csharpier" }
 			},
 		})
 	end,

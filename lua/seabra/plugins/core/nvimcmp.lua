@@ -52,6 +52,7 @@ return {
       cmp_autopairs.on_confirm_done()
     )
     return {
+      preselect = cmp.PreselectMode.None,
       completion = {
         completeopt = "menu,menuone,noselect",
       },
@@ -63,8 +64,8 @@ return {
       mapping = cmp.mapping.preset.insert({
         ["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert, select = false }),
         ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert, select = false }),
-        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<PageUp>"] = cmp.mapping.scroll_docs(-4),
+        ["<PageDown>"] = cmp.mapping.scroll_docs(4),
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-e>"] = cmp.mapping.abort(),
         ["<CR>"] = cmp.mapping.confirm({ select = false }),   -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.

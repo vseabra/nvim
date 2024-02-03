@@ -2,6 +2,11 @@ return {
 	"nvim-telescope/telescope.nvim",
 	config = function()
 		require("telescope").setup({
+      pickers = {
+        buffers = {
+          sort_mru = true
+        }
+      },
 			defaults = {
 				vimgrep_arguments = {
 					"rg",

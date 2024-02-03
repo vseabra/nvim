@@ -23,11 +23,12 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- Set scrolloff to 0 for terminal buffers
 vim.api.nvim_create_autocmd({ "TermOpen" }, {
-  pattern = { "zsh" },
+  pattern = { "*" },
   callback = function()
     vim.opt_local.scrolloff = 0
     vim.opt_local.number = false
     vim.opt_local.relativenumber = false
+    vim.cmd('normal! G')
   end,
 })
 
