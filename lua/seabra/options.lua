@@ -1,7 +1,7 @@
 local options = {
   backup = false,                         -- creates a backup file
   clipboard = "unnamedplus",              -- allows neovim to access the system clipboard
-  cmdheight = 0,                          -- more space in the neovim command line for displaying messages
+  cmdheight = 1,                          -- more space in the neovim command line for displaying messages
   completeopt = { "menuone", "noselect" }, -- mostly just for cmp conceallevel = 0,                        -- so that `` is visible in markdown files
   fileencoding = "utf-8",                 -- the encoding written to a file
   hlsearch = true,                        -- highlight all matches on previous search pattern
@@ -36,6 +36,7 @@ local options = {
   whichwrap = "bs<>[]hl",                 -- which "horizontal" keys are allowed to travel to prev/next line
   foldlevel = 20,
   equalalways = false,
+  showmode = false,
 }
 
 local vim = vim
@@ -53,5 +54,3 @@ vim.opt.shortmess:append("c") -- don't give |ins-completion-menu| messages
 
 -- use treesitter for folding
 vim.opt.foldmethod = "expr"
-vim.opt.foldexpr   = "v:lua.vim.treesitter.foldexpr()"
-vim.opt.foldtext   = "v:lua.vim.treesitter.foldtext()"

@@ -44,6 +44,9 @@ return {
 
       vim.treesitter.language.register("sql", "mysql")
 
+      vim.opt.foldexpr   = "v:lua.vim.treesitter.foldexpr()"
+      -- vim.opt.foldtext   = "v:lua.vim.treesitter.foldtext()"
+
 		end,
 	},
 	{ "nvim-treesitter/nvim-treesitter-textobjects", config = function() end },
