@@ -8,7 +8,7 @@ local options = {
   ignorecase = true,                      -- ignore case in search patterns
   mouse = "a",                            -- allow the mouse to be used in neovim
   pumheight = 10,                         -- pop up menu height
-  showtabline = 1,
+  showtabline = 0,                        -- never show tabline in top 
   smartcase = true,                       -- smart case
   smartindent = true,                     -- make indenting smarter again
   splitbelow = true,                      -- force all horizontal splits to go below current window
@@ -31,7 +31,7 @@ local options = {
   wrap = false,                           -- display lines as one long line
   linebreak = true,                       -- companion to wrap, don't split words
   scrolloff = 8,                          -- minimal number of screen lines to keep above and below the cursor
-  sidescrolloff = 8,                      -- minimal number of screen columns either side of cursor if wrap is `false`
+  sidescrolloff = 1,                      -- minimal number of screen columns either side of cursor if wrap is `false`
   guifont = "monospace:h17",              -- the font used in graphical neovim applications
   whichwrap = "bs<>[]hl",                 -- which "horizontal" keys are allowed to travel to prev/next line
   foldlevel = 20,
@@ -48,9 +48,10 @@ end
 vim.opt.shortmess:append("c") -- don't give |ins-completion-menu| messages
 
 -- disable netrw
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
 
 -- use treesitter for folding
 vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldexpr   = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldtext   = "v:lua.vim.treesitter.foldtext()"

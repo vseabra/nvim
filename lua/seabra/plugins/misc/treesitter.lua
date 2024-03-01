@@ -4,6 +4,7 @@ return {
 		build = ":TSUpdate",
 		config = function()
 			local configs = require("nvim-treesitter.configs")
+
 			configs.setup({
 				ensure_installed = "all",
 				version = nil,
@@ -13,7 +14,7 @@ return {
 					enable = true, -- false will disable the whole extension
 					disable = { "" }, -- list of language that will be disabled
 				},
-				indent = { enable = true, disable = { "python" } },
+				indent = { enable = true, disable = { "python", "yaml" } },
 				textobjects = {
 					select = {
 						enable = true,
@@ -40,6 +41,9 @@ return {
 					},
 				},
 			})
+
+      vim.treesitter.language.register("sql", "mysql")
+
 		end,
 	},
 	{ "nvim-treesitter/nvim-treesitter-textobjects", config = function() end },

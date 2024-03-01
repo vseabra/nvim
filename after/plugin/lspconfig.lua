@@ -32,6 +32,8 @@ lspconfig.lua_ls.setup({
 
 lspconfig.gopls.setup({})
 lspconfig.rust_analyzer.setup({})
+lspconfig.svelte.setup({})
+-- lspconfig.tailwindcss.setup({})
 
 lspconfig.jsonls.setup({
   capabilities = capabilities,

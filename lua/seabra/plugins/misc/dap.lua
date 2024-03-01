@@ -1,11 +1,81 @@
 return {
 	{
 		"mfussenegger/nvim-dap",
-    lazy = true,
+		lazy = true,
 		config = function()
 			local dap = require("dap")
 			local mason_path = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/")
+
+			--- BEGIN GO CONFIG ---
+
+			local function get_arguments()
+				return coroutine.create(function(dap_run_coroutine)
+					local args = {}
+
+					vim.ui.input({ prompt = "Args: " }, function(input)
+						args = vim.split(input or "", " ")
+					end)
+
+					coroutine.resume(dap_run_coroutine, args)
+				end)
+			end
+
+			dap.adapters.delve = {
+				type = "server",
+				port = "${port}",
+				executable = {
+					command = "dlv",
+					args = { "dap", "-l", "127.0.0.1:${port}" },
+				},
+			}
+
+			dap.configurations.go = {
+				{
+					type = "delve",
+					name = "Debug",
+					request = "launch",
+					showLog = false,
+					program = "${file}",
+				},
+
+				{
+					type = "delve",
+					name = "Debug (with arguments)",
+					request = "launch",
+					showLog = false,
+					program = "${file}",
+					args = get_arguments,
+				},
+				{
+					type = "delve",
+					name = "Debug test", -- configuration for debugging test files
+					request = "launch",
+					mode = "test",
+					program = "${file}",
+				},
+				{
+					type = "delve",
+					name = "Debug test (go.mod)", -- works with go.mod packages and sub packages
+					request = "launch",
+					mode = "test",
+					program = "./${relativeFileDirname}",
+				},
+			}
+
+			--- END GO CONFIG ---
+
+			--- BEGIN JS CONFIG ---
 			local js_based_languages = { "typescript", "javascript", "typescriptreact" }
+
+			dap.adapters["pwa-node"] = {
+				type = "server",
+				host = "localhost",
+				port = "${port}",
+				executable = {
+					command = "node",
+					args = { "-r", mason_path .. "bin/js-debug/src/dapDebugServer.js ", "${port}" },
+				},
+			}
 
 			for _, language in ipairs(js_based_languages) do
 				dap.configurations[language] = {
@@ -16,49 +86,10 @@ return {
 						program = "${file}",
 						cwd = "${workspaceFolder}",
 					},
-					{
-						type = "pwa-node",
-						request = "attach",
-						name = "Attach",
-						processId = require("dap.utils").pick_process,
-						cwd = "${workspaceFolder}",
-					},
-					{
-						type = "pwa-chrome",
-						request = "launch",
-						name = 'Start Chrome with "localhost"',
-						url = "http://localhost:3000",
-						webRoot = "${workspaceFolder}",
-						userDataDir = "${workspaceFolder}/.vscode/vscode-chrome-debug-userdatadir",
-					},
 				}
 			end
-		end,
-	},
-	{
-		"mxsdev/nvim-dap-vscode-js",
-		dependencies = { "mfussenegger/nvim-dap" },
-		config = function()
-			local mason_path = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/")
 
-			require("dap-vscode-js").setup({
-				-- node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
-				debugger_path = mason_path .. "bin/", -- Path to vscode-js-debug installation.
-				debugger_cmd = { "js-debug-adapter" }, -- Command to use to launch the debug server. Takes precedence over `node_path` and `debugger_path`.
-				adapters = {
-					"chrome",
-					"pwa-node",
-					"pwa-chrome",
-					"pwa-msedge",
-					"node-terminal",
-					"pwa-extensionHost",
-					"node",
-					"chrome",
-				}, -- which adapters to register in nvim-dap
-				-- log_file_path = "(stdpath cache)/dap_vscode_js.log" -- Path for file logging
-				-- log_file_level = false -- Logging level for output to file. Set to false to disable file logging.
-				-- log_console_level = vim.log.levels.ERROR -- Logging level for output to console. Set to false to disable console output.
-			})
+			--- END JS CONFIG ---
 		end,
 	},
 	{
@@ -67,15 +98,22 @@ return {
 		config = function()
 			local dap, dapui = require("dap"), require("dapui")
 
+			dapui.setup()
+
 			dap.listeners.after.event_initialized["dapui_config"] = function()
 				dapui.open({})
 			end
 			dap.listeners.before.event_terminated["dapui_config"] = function()
 				dapui.close({})
 			end
-			dap.listeners.before.event_exited["dapui_config"] = function()
-				dapui.close({})
-			end
+			-- dap.listeners.before.event_exited["dapui_config"] = function()
+			-- 	dapui.close({})
+			-- end
 		end,
+	},
+	{
+		"theHamsta/nvim-dap-virtual-text",
+		dependencies = { "mfussenegger/nvim-dap" },
+		config = true,
 	},
 }

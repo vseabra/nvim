@@ -34,8 +34,12 @@ return {
       float = {
         winblend = 0,
         win_opts = function()
+          local width = math.floor(vim.o.columns * 0.7)
+          local height = math.floor(vim.o.lines * 0.7)
           return {
             relative = "editor",
+            width = width,
+            height = height,
 
             border = "none",
             style = "minimal",

@@ -25,6 +25,14 @@ wk.register({
     b = { "<cmd>GitBlameToggle<cr>", "git blame" },
     d = { "<cmd>DBUIToggle<cr>", "database UI" }
   },
+  d = {
+    name = "debugger",
+    t = { "<cmd>DapToggleBreakpoint<cr>", "toggle breakpoint" },
+    s = { "<cmd>DapContinue<cr>", "start/continue" },
+    x = { "<cmd>DapTerminate<cr>", "terminate" },
+    u = { "<cmd>lua require('dapui').toggle()<cr>", "toggle dapUI" },
+    r = { "<cmd>lua require('dapui').open({reset = true})<cr>", "reset ui" }
+  },
   r = { "<cmd>lua require'lir.float'.toggle()<cr>", "lir" },
   c = { "<cmd>Bwipeout!<cr>", "close buffer" },
 }, { prefix = "<leader>" })
