@@ -30,7 +30,7 @@ lspconfig.lua_ls.setup({
   },
 })
 
-lspconfig.gopls.setup({})
+lspconfig.gopls.setup(capabilities)
 lspconfig.rust_analyzer.setup({})
 lspconfig.svelte.setup({})
 -- lspconfig.tailwindcss.setup({})
@@ -39,13 +39,9 @@ lspconfig.jsonls.setup({
   capabilities = capabilities,
 })
 
-lspconfig.tsserver.setup({
-  on_attach = function(client)
-    client.resolved_capabilities.document_formatting = false
-    client.server_capabilities.documentFormattingProvider = false
-    client.server_capabilities.documentRangeFormattingProvider = false
-  end,
-})
+lspconfig.tsserver.setup(capabilities)
+
+lspconfig.gdscript.setup(capabilities)
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions

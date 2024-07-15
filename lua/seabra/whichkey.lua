@@ -15,7 +15,7 @@ wk.add({
 	{ "<leader>lf", "<cmd>lua require('conform').format()<cr>", desc = "format document" },
 	{ "<leader>li", "<cmd>LspInfo<cr>", desc = "show lsp info" },
 	{ "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "rename symbol" },
-	{ "<leader>r", "<cmd>Telescope file_browser<cr>", desc = "file_browser" },
+	{ "<leader>r", "<cmd>NvimTreeToggle<cr>", desc = "file_browser" },
 	{ "<leader>s", group = "search" },
 	{ "<leader>sc", "<cmd>Easypick cargo_commands<cr>", desc = "search cargo command" },
 	{ "<leader>sf", "<cmd>Telescope find_files<cr>", desc = "search file by name" },

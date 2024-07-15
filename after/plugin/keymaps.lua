@@ -2,10 +2,6 @@ local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 
---Remap space as leader key
-keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
 
 -- Normal --
 -- Better window navigation
@@ -68,3 +64,10 @@ keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 vim.keymap.set("n", "s", require('substitute').operator, { noremap = true })
 vim.keymap.set("n", "ss", require('substitute').line, { noremap = true })
 vim.keymap.set("x", "s", require('substitute').visual, { noremap = true })
+
+
+-- zoom in and out of windows
+vim.cmd([[
+command! ZI wincmd _ | wincmd |
+command! ZO wincmd =
+]])
