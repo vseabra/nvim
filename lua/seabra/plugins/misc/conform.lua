@@ -10,7 +10,7 @@ return {
 				go = { "goimports-reviser", "goimports", "gofmt" },
 				rust = { "rustfmt" },
 				yaml = { "prettier" },
-				csharp = { "csharpier" }
+				gdscript = { "gdformat" },
 			},
 		})
 	end,

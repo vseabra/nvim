@@ -1,38 +1,30 @@
 local wk = require("which-key")
 
-wk.register({
-  s = {
-    name = "search",
-    f = { "<cmd>Telescope find_files<cr>", "search file by name" },
-    t = { "<cmd>Telescope live_grep<cr>", "search file by text" },
-    o = { "<cmd>Telescope buffers<cr>", "open buffers" },
-    m = { "<cmd>Easypick make_targets<cr>", "search make target" },
-    n = { "<cmd>Easypick npm_scripts<cr>", "search npm command" },
-    c = { "<cmd>Easypick cargo_commands<cr>", "search cargo command" },
-  },
-  l = {
-    name = "lsp",
-    a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "peform code action" },
-    d = { "<cmd>lua vim.diagnostic.open_float()<cr>", "show diagnostics" },
-    i = { "<cmd>LspInfo<cr>", "show lsp info" },
-    f = { "<cmd>lua require('conform').format()<cr>", "format document" },
-    F = { "<cmd>lua vim.lsp.buf.format()<cr>", "format document(lsp)" },
-    r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "rename symbol" },
-  },
-  t = {
-    name = "toggles",
-    t = { "<cmd>lua require('trouble').toggle()<cr>", "trouble" },
-    b = { "<cmd>GitBlameToggle<cr>", "git blame" },
-    d = { "<cmd>DBUIToggle<cr>", "database UI" }
-  },
-  d = {
-    name = "debugger",
-    t = { "<cmd>DapToggleBreakpoint<cr>", "toggle breakpoint" },
-    s = { "<cmd>DapContinue<cr>", "start/continue" },
-    x = { "<cmd>DapTerminate<cr>", "terminate" },
-    u = { "<cmd>lua require('dapui').toggle()<cr>", "toggle dapUI" },
-    r = { "<cmd>lua require('dapui').open({reset = true})<cr>", "reset ui" }
-  },
-  r = { "<cmd>lua require'lir.float'.toggle()<cr>", "lir" },
-  c = { "<cmd>Bwipeout!<cr>", "close buffer" },
-}, { prefix = "<leader>" })
+wk.add({
+	{ "<leader>c", "<cmd>Bwipeout!<cr>", desc = "close buffer" },
+	{ "<leader>d", group = "debugger" },
+	{ "<leader>dr", "<cmd>lua require('dapui').open({reset = true})<cr>", desc = "reset ui" },
+	{ "<leader>ds", "<cmd>DapContinue<cr>", desc = "start/continue" },
+	{ "<leader>dt", "<cmd>DapToggleBreakpoint<cr>", desc = "toggle breakpoint" },
+	{ "<leader>du", "<cmd>lua require('dapui').toggle()<cr>", desc = "toggle dapUI" },
+	{ "<leader>dx", "<cmd>DapTerminate<cr>", desc = "terminate" },
+	{ "<leader>l", group = "lsp" },
+	{ "<leader>lF", "<cmd>lua vim.lsp.buf.format()<cr>", desc = "format document(lsp)" },
+	{ "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "peform code action" },
+	{ "<leader>ld", "<cmd>lua vim.diagnostic.open_float()<cr>", desc = "show diagnostics" },
+	{ "<leader>lf", "<cmd>lua require('conform').format()<cr>", desc = "format document" },
+	{ "<leader>li", "<cmd>LspInfo<cr>", desc = "show lsp info" },
+	{ "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "rename symbol" },
+	{ "<leader>r", "<cmd>Telescope file_browser<cr>", desc = "file_browser" },
+	{ "<leader>s", group = "search" },
+	{ "<leader>sc", "<cmd>Easypick cargo_commands<cr>", desc = "search cargo command" },
+	{ "<leader>sf", "<cmd>Telescope find_files<cr>", desc = "search file by name" },
+	{ "<leader>sm", "<cmd>Easypick make_targets<cr>", desc = "search make target" },
+	{ "<leader>sn", "<cmd>Easypick npm_scripts<cr>", desc = "search npm command" },
+	{ "<leader>so", "<cmd>Telescope buffers<cr>", desc = "open buffers" },
+	{ "<leader>st", "<cmd>Telescope live_grep<cr>", desc = "search file by text" },
+	{ "<leader>t", group = "toggles" },
+	{ "<leader>tb", "<cmd>GitBlameToggle<cr>", desc = "git blame" },
+	{ "<leader>td", "<cmd>DBUIToggle<cr>", desc = "database UI" },
+	{ "<leader>tt", "<cmd>lua require('trouble').toggle()<cr>", desc = "trouble" },
+})

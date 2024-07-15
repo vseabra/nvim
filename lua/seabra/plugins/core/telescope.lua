@@ -2,11 +2,18 @@ return {
 	"nvim-telescope/telescope.nvim",
 	config = function()
 		require("telescope").setup({
-      pickers = {
-        buffers = {
-          sort_mru = true
-        }
-      },
+			pickers = {
+				buffers = {
+					sort_mru = true,
+				},
+			},
+			extensions = {
+				file_browser = {
+					-- theme = "ivy",
+					-- disables netrw and use telescope-file-browser in its place
+					hijack_netrw = true,
+				},
+			},
 			defaults = {
 				vimgrep_arguments = {
 					"rg",
@@ -44,7 +51,7 @@ return {
 				path_display = { "truncate" },
 				winblend = 0,
 				border = {},
-				borderchars = {" "},
+				borderchars = { " " },
 				color_devicons = true,
 				set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
 				file_previewer = require("telescope.previewers").vim_buffer_cat.new,
@@ -57,6 +64,7 @@ return {
 				},
 			},
 		})
+		require("telescope").load_extension("file_browser")
 	end,
 	dependencies = {
 		{ "nvim-lua/plenary.nvim" },

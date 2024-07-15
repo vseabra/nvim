@@ -38,7 +38,8 @@ return {
     "hrsh7th/cmp-cmdline",
     "saadparwaiz1/cmp_luasnip",
     "L3MON4D3/LuaSnip",
-    'rafamadriz/friendly-snippets'
+    "rafamadriz/friendly-snippets",
+		"kristijanhusak/vim-dadbod-completion"
   },
   event = "InsertEnter",
   opts = function()
@@ -79,6 +80,7 @@ return {
         { name = "copilot" },
         { name = "luasnip" },
         { name = "path" },
+				{ name = "vim-dadbod-completion" }
       }, {
         { name = "buffer" },
       }),
@@ -99,6 +101,7 @@ return {
             path = "[path]",
             nvim_lsp = "[lsp]",
             copilot = "[copilot]",
+						["vim-dadbod-completion"] = "[DB]",
           })[entry.source.name]
           return vim_item
         end,

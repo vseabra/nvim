@@ -2,7 +2,7 @@ local colors = require("seabra.colors")
 local everforest = colors.everforest.hard_background
 
 local Highlights = {
-  -- TELESCOPE
+	-- TELESCOPE
 	TelescopeBorder = { fg = everforest.dark.bg0 },
 	TelescopePreviewBorder = {
 		fg = everforest.dark.bg0,
@@ -38,19 +38,16 @@ local Highlights = {
 	TelescopeResultsNormal = {
 		bg = everforest.dark.bg_dim,
 	},
-  TelescopePreviewNormal = {
+	TelescopePreviewNormal = {
 		bg = everforest.dark.bg_dim,
 	},
-  TelescopeSelection = { bold = false, fg = everforest.dark.bg0, bg = colors.everforest.hard_background.dark.fg },
-  TelescopeMatching = { bold = true },
-  -- LIR
-  LirFloatNormal = {bg = everforest.dark.bg_dim, fg = colors.everforest.hard_background.dark.fg},
-  LirFloatCurdirWindowNormal = { bold = true, bg = everforest.dark.bg2 },
-  LirFloatCurdirWindowDirName = { bold = true, fg = everforest.dark.green },
-  LirFloatCursorLine = { bold = false, fg = everforest.dark.bg0, bg = colors.everforest.hard_background.dark.fg },
+	TelescopePreviewDirectory = { fg = everforest.dark.statusline3, bold = true },
+	TelescopePreviewDate = { bg = everforest.dark.bg_0 },
+	TelescopePreviewSize = { bg = everforest.dark.bg_0 },
+	TelescopeSelection = { bold = false, fg = everforest.dark.bg0, bg = everforest.dark.fg },
+	TelescopeMatching = { bold = true },
 }
 
 for hl, col in pairs(Highlights) do
 	vim.api.nvim_set_hl(0, hl, col)
 end
-
