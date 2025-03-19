@@ -5,8 +5,8 @@ return {
 			formatters_by_ft = {
 				lua = { "stylua" },
 				python = { "isort", "black" },
-				javascript = { { "prettier" } },
-				typescript = { { "prettier" } },
+				javascript = { "prettier" },
+				typescript = { "prettier" },
 				go = { "goimports-reviser", "goimports", "gofmt" },
 				rust = { "rustfmt" },
 				yaml = { "prettier" },

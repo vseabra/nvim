@@ -3,6 +3,8 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local lspconfig = require("lspconfig")
 
+lspconfig.gdscript.setup{}
+
 lspconfig.lua_ls.setup({
   settings = {
     Lua = {
@@ -39,7 +41,8 @@ lspconfig.jsonls.setup({
   capabilities = capabilities,
 })
 
-lspconfig.tsserver.setup(capabilities)
+-- lspconfig.tsserver.setup(capabilities)
+lspconfig.ts_ls.setup(capabilities)
 
 lspconfig.gdscript.setup(capabilities)
 

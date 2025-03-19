@@ -24,7 +24,12 @@ return {
 		},
 		sections = {
 			lualine_a = { "mode" },
-			lualine_b = { "branch", "diff", "diagnostics", "filename" },
+			lualine_b = {
+				"branch",
+				"diff",
+				{ "diagnostics", symbols = { error = " ", warn = " ", info = " ", hint = " " } },
+				"filename",
+			},
 			lualine_c = {},
 			lualine_x = { "filetype", { "fileformat", symbols = { unix = "LF", mac = "LF(macOS)", dos = "CRLF" } } },
 			lualine_y = {

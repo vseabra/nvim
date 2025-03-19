@@ -3,7 +3,7 @@ return {
 		"folke/zen-mode.nvim",
 		opts = {
 			backdrop = 0.9, -- shade the backdrop of the Zen window. Set to 1 to keep the same as Normal
-			width = 190,
+			width = 210,
 			height = 1,
 			options = {
 				signcolumn = "yes", -- disable signcolumn

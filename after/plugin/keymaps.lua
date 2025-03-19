@@ -14,7 +14,7 @@ keymap("n", "<C-j>", "<cmd> TmuxNavigateDown<CR>", opts)
 keymap("n", "<C-k>", "<cmd> TmuxNavigateUp<CR>", opts)
 keymap("n", "<C-l>", "<cmd> TmuxNavigateRight<CR>", opts)
 
-keymap("n", "<leader>e", ":Lex 30<cr>", opts)
+keymap("n", "<leader>e", ":NvimTreeToggle<cr>", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize +2<CR>", opts)

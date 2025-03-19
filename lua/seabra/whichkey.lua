@@ -26,5 +26,5 @@ wk.add({
 	{ "<leader>t", group = "toggles" },
 	{ "<leader>tb", "<cmd>GitBlameToggle<cr>", desc = "git blame" },
 	{ "<leader>td", "<cmd>DBUIToggle<cr>", desc = "database UI" },
-	{ "<leader>tt", "<cmd>lua require('trouble').toggle()<cr>", desc = "trouble" },
+	{ "<leader>tt", "<cmd>Trouble diagnostics toggle<cr>", desc = "trouble" },
 })

@@ -14,6 +14,7 @@ return {
 			hijack_netrw = true,
 			respect_buf_cwd = true,
 			sync_root_with_cwd = true,
+			git = { ignore = false },
 			renderer = {
 				icons = {
 					web_devicons = {
@@ -26,7 +27,7 @@ return {
 							color = true,
 						},
 					},
-					git_placement = "before",
+					git_placement = "after",
 					modified_placement = "after",
 					diagnostics_placement = "signcolumn",
 					bookmarks_placement = "signcolumn",
@@ -57,11 +58,11 @@ return {
 							symlink_open = "",
 						},
 						git = {
-							unstaged = "✗",
+							unstaged = "",
 							staged = "✓",
 							unmerged = "",
 							renamed = "➜",
-							untracked = "★",
+							untracked = "󱏴",
 							deleted = "",
 							ignored = "-",
 						},
@@ -95,9 +96,9 @@ return {
 					return math.floor(vim.opt.columns:get() * WIDTH_RATIO)
 				end,
 			},
-			-- filters = {
-			--   custom = { "^.git$" },
-			-- },
+			filters = {
+				dotfiles = false
+			},
 			-- renderer = {
 			--   indent_width = 1,
 			-- },

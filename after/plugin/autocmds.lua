@@ -63,3 +63,10 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "BufWritePost" }, {
         end
     end,
 })
+
+
+-- create server pipe
+local pipepath = vim.fn.stdpath("cache") .. "/server.pipe"
+if not vim.loop.fs_stat(pipepath) then
+  vim.fn.serverstart(pipepath)
+end
