@@ -13,7 +13,7 @@ wk.add({
 	{ "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "peform code action" },
 	{ "<leader>ld", "<cmd>lua vim.diagnostic.open_float()<cr>", desc = "show diagnostics" },
 	{ "<leader>lf", "<cmd>lua require('conform').format()<cr>", desc = "format document" },
-	{ "<leader>li", "<cmd>LspInfo<cr>", desc = "show lsp info" },
+	{ "<leader>li", "<cmd>lua vim.lsp.buf.implementation()<cr>", desc = "go to implementation" },
 	{ "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "rename symbol" },
 	{ "<leader>r", "<cmd>NvimTreeToggle<cr>", desc = "file_browser" },
 	{ "<leader>s", group = "search" },
