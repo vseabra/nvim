@@ -101,7 +101,7 @@ return {
             path = "[path]",
             nvim_lsp = "[lsp]",
             copilot = "[copilot]",
-						["vim-dadbod-completion"] = "[DB]",
+            ["vim-dadbod-completion"] = "[DB]",
           })[entry.source.name]
           return vim_item
         end,
