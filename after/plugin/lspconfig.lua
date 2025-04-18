@@ -33,18 +33,13 @@ lspconfig.lua_ls.setup({
 })
 
 lspconfig.gopls.setup(capabilities)
-lspconfig.rust_analyzer.setup({})
 lspconfig.svelte.setup({})
--- lspconfig.tailwindcss.setup({})
 
 lspconfig.jsonls.setup({
 	capabilities = capabilities,
 })
 
--- lspconfig.tsserver.setup(capabilities)
 lspconfig.ts_ls.setup(capabilities)
-
-lspconfig.gdscript.setup(capabilities)
 
 lspconfig.rust_analyzer.setup({
 	completion = {
@@ -60,6 +55,8 @@ lspconfig.rust_analyzer.setup({
 	},
 })
 
+lspconfig.typos_lsp.setup(capabilities)
+
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set("n", "gl", vim.diagnostic.open_float)
@@ -67,10 +64,3 @@ vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next)
 vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist)
 vim.keymap.set("n", "K", vim.lsp.buf.hover)
-
--- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
---   underline = true,
---   virtual_text = false,
---   signs = true,
---   update_in_insert = false,
--- })

@@ -19,11 +19,11 @@ return {
 				icons = {
 					web_devicons = {
 						file = {
-							enable = false,
+							enable = true,
 							color = true,
 						},
 						folder = {
-							enable = false,
+							enable = true,
 							color = true,
 						},
 					},
@@ -58,7 +58,7 @@ return {
 							symlink_open = "",
 						},
 						git = {
-							unstaged = "",
+							unstaged = "",
 							staged = "✓",
 							unmerged = "",
 							renamed = "➜",

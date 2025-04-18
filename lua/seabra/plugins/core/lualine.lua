@@ -2,7 +2,7 @@ local colors = require("seabra.colors")
 
 return {
 	"nvim-lualine/lualine.nvim",
-	dependecies = { "nvim-tree/nvim-web-devicons", opt = true },
+	dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
 	opts = {
 		options = {
 			icons_enabled = true,

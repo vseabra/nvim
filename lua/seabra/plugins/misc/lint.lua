@@ -21,9 +21,6 @@ return {
 			-- go = {
 			-- 	"golangcilint",
 			-- },
-			gdscript = {
-				"gdlint",
-			},
 		}
 	end,
 }
