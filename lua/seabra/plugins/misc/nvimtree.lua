@@ -3,9 +3,6 @@ vim.g.loaded_netrwPlugin = 1
 
 vim.opt.termguicolors = true
 
-local HEIGHT_RATIO = 0.7
-local WIDTH_RATIO = 0.3
-
 return {
 	{
 		"nvim-tree/nvim-tree.lua",
@@ -16,14 +13,23 @@ return {
 			sync_root_with_cwd = true,
 			git = { ignore = false },
 			renderer = {
+				indent_markers = {
+					enable = true,
+					icons = {
+						corner = "└",
+						edge = "│",
+						none = "",
+						bottom = "─",
+					},
+				},
 				icons = {
 					web_devicons = {
 						file = {
-							enable = true,
+							enable = false,
 							color = true,
 						},
 						folder = {
-							enable = true,
+							enable = false,
 							color = true,
 						},
 					},
@@ -31,12 +37,12 @@ return {
 					modified_placement = "after",
 					diagnostics_placement = "signcolumn",
 					bookmarks_placement = "signcolumn",
-					padding = " ",
+					padding = "",
 					symlink_arrow = " ➛ ",
 					show = {
-						file = true,
+						file = false,
 						folder = true,
-						folder_arrow = true,
+						folder_arrow = false,
 						git = true,
 						modified = true,
 						diagnostics = true,
@@ -48,12 +54,12 @@ return {
 						bookmark = "󰆤",
 						modified = "-",
 						folder = {
-							arrow_closed = "-",
-							arrow_open = "+",
-							default = "●",
-							open = "◌",
+							arrow_closed = "│",
+							arrow_open = "└",
+							default = "● ",
+							open = "◌ ",
 							empty = "◌",
-							empty_open = "◌",
+							empty_open = "◌ ",
 							symlink = "",
 							symlink_open = "",
 						},
@@ -70,38 +76,33 @@ return {
 				},
 			},
 			view = {
-				relativenumber = true,
+				number= true,
+				signcolumn= "no",
 				float = {
 					enable = true,
 					open_win_config = function()
 						local screen_w = vim.opt.columns:get()
-						local screen_h = vim.opt.lines:get() - vim.opt.cmdheight:get()
-						local window_w = screen_w * WIDTH_RATIO
-						local window_h = screen_h * HEIGHT_RATIO
-						local window_w_int = math.floor(window_w)
-						local window_h_int = math.floor(window_h)
-						local center_x = (screen_w - window_w) / 2
-						local center_y = ((vim.opt.lines:get() - window_h) / 2) - vim.opt.cmdheight:get()
+						local w_h = 60
+						local s_h = 30
+						local center_x = (screen_w - w_h) / 2
+						local center_y = ((vim.opt.lines:get() - s_h) / 5) - vim.opt.cmdheight:get()
 						return {
-							border = "rounded",
 							relative = "editor",
 							row = center_y,
 							col = center_x,
-							width = window_w_int,
-							height = window_h_int,
+							width = w_h,
+							height = s_h,
+							border = "shadow"
 						}
 					end,
 				},
 				width = function()
-					return math.floor(vim.opt.columns:get() * WIDTH_RATIO)
+					return math.floor(vim.opt.columns:get() * 5)
 				end,
 			},
 			filters = {
-				dotfiles = false
+				dotfiles = false,
 			},
-			-- renderer = {
-			--   indent_width = 1,
-			-- },
 		},
 	},
 }
