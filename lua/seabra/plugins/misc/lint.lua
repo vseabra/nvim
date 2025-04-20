@@ -18,9 +18,9 @@ return {
 			lua = {
 				"selene",
 			},
-			-- go = {
-			-- 	"golangcilint",
-			-- },
+			go = {
+				"golangcilint",
+			},
 		}
 	end,
 }
