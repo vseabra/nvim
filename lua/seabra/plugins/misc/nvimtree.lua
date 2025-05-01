@@ -38,7 +38,7 @@ return {
 					diagnostics_placement = "signcolumn",
 					bookmarks_placement = "signcolumn",
 					padding = "",
-					symlink_arrow = " ➛ ",
+					symlink_arrow = " 🢲",
 					show = {
 						file = false,
 						folder = true,
@@ -51,26 +51,26 @@ return {
 					glyphs = {
 						default = "+",
 						symlink = "",
-						bookmark = "󰆤",
+						bookmark = "💗",
 						modified = "-",
 						folder = {
 							arrow_closed = "│",
 							arrow_open = "└",
 							default = "● ",
 							open = "◌ ",
-							empty = "◌",
+							empty = "◌ ",
 							empty_open = "◌ ",
 							symlink = "",
 							symlink_open = "",
 						},
 						git = {
-							unstaged = "",
-							staged = "✓",
-							unmerged = "",
-							renamed = "➜",
-							untracked = "󱏴",
-							deleted = "",
-							ignored = "-",
+							unstaged = " ",
+							staged = " ✓",
+							unmerged = " ",
+							renamed = " ➜",
+							untracked = " ",
+							deleted = " ",
+							ignored = " -",
 						},
 					},
 				},
@@ -79,7 +79,7 @@ return {
 				number= true,
 				signcolumn= "no",
 				float = {
-					enable = true,
+					enable = false,
 					open_win_config = function()
 						local screen_w = vim.opt.columns:get()
 						local w_h = 60
@@ -96,9 +96,9 @@ return {
 						}
 					end,
 				},
-				width = function()
-					return math.floor(vim.opt.columns:get() * 5)
-				end,
+				-- width = function()
+				-- 	return math.floor(vim.opt.columns:get() * 5)
+				-- end,
 			},
 			filters = {
 				dotfiles = false,
