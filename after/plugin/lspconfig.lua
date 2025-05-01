@@ -42,16 +42,31 @@ lspconfig.jsonls.setup({
 lspconfig.ts_ls.setup(capabilities)
 
 lspconfig.rust_analyzer.setup({
-	completion = {
-		callable = { snippets = "fill_arguments" },
-		fullFunctionSignatures = { enable = true },
-	},
-	procMacro = { enable = true },
-	check = {
-		command = "clippy",
-	},
-	cargo = {
-		features = "all",
+	settings = {
+		completion = {
+			callable = { snippets = "fill_arguments" },
+			fullFunctionSignatures = { enable = true },
+		},
+		procMacro = { enable = true },
+		check = {
+			command = "clippy",
+		},
+		-- Add clippy lints for Rust.
+		checkOnSave = {
+			allFeatures = true,
+			command = "clippy",
+			extraArgs = {
+				"--",
+				"--no-deps",
+				"-Dclippy::correctness",
+				"-Dclippy::complexity",
+				"-Wclippy::perf",
+				"-Wclippy::pedantic",
+			},
+		},
+		cargo = {
+			features = "all",
+		},
 	},
 })
 
