@@ -13,14 +13,14 @@ return {
 			separator_style = "thick",
 			always_show_bufferline = false,
 
-			offsets = {
-				{
-					filetype = "NvimTree",
-					text = "Files",
-					text_align = "left",
-					separator = true,
-				},
-			},
+			-- offsets = {
+			-- 	{
+			-- 		filetype = "NvimTree",
+			-- 		text = "Files",
+			-- 		text_align = "left",
+			-- 		separator = true,
+			-- 	},
+			-- },
 		},
 	},
 }
