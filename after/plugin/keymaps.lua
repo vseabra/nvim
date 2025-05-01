@@ -58,6 +58,9 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 -- Go to definition
 keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 
+-- Go to implementation
+keymap("n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+
 -- Go to references
 keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 

@@ -8,6 +8,12 @@ return {
     build = "make tiktoken", -- Only on MacOS or Linux
     opts = {
       model = "claude-3.7-sonnet-thought",
+      window = {
+        layout = "float", 
+        width = 0.7,
+        height = 0.7,
+        border = 'solid',
+      },
       context = { "buffer", "filenames" }, -- Include both current buffer and filenames
       -- See Configuration section for options
     },
