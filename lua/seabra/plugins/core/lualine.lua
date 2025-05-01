@@ -17,7 +17,7 @@ return {
 			ignore_focus = {},
 			always_divide_middle = true,
 			refresh = {
-				statusline = 1000,
+				statusline = 300,
 				tabline = 1000,
 				winbar = 1000,
 			},

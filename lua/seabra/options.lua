@@ -1,7 +1,7 @@
 local options = {
   backup = false,                         -- creates a backup file
   clipboard = "unnamedplus",              -- allows neovim to access the system clipboard
-  cmdheight = 1,                          -- more space in the neovim command line for displaying messages
+  cmdheight = 0,                          -- more space in the neovim command line for displaying messages
   completeopt = { "menuone", "noselect" }, -- mostly just for cmp conceallevel = 0,                        -- so that `` is visible in markdown files
   fileencoding = "utf-8",                 -- the encoding written to a file
   hlsearch = true,                        -- highlight all matches on previous search pattern
@@ -37,6 +37,7 @@ local options = {
   foldlevel = 20,
   equalalways = false,
   showmode = false,
+  showcmd= false,
 }
 
 local vim = vim

@@ -33,14 +33,14 @@ vim.api.nvim_create_autocmd({ "TermOpen" }, {
 })
 
 -- https://www.reddit.com/r/neovim/comments/16hiz32/help_for_disappearing_statusline/
--- vim.api.nvim_create_autocmd({ "ModeChanged" }, {
---   pattern = { "*" },
---   callback = function()
---     vim.schedule(function()
---       vim.cmd("redraw")
---     end)
---   end,
--- })
+vim.api.nvim_create_autocmd({ "ModeChanged" }, {
+  pattern = { "*" },
+  callback = function()
+    vim.schedule(function()
+      vim.cmd("redraw")
+    end)
+  end,
+})
 
 -- attach lsp signature on lsp attach
 vim.api.nvim_create_autocmd({ "LspAttach" }, {

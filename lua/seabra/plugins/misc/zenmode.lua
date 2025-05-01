@@ -20,7 +20,7 @@ return {
 				options = {
 					enabled = true,
 					ruler = false, -- disables the ruler text in the cmd line area
-					showcmd = true,
+					showcmd = false,
 					laststatus = 0, -- turn off the statusline in zen mode
 				},
 			},
