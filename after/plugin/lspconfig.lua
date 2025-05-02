@@ -37,6 +37,7 @@ lspconfig.jsonls.setup({
 })
 
 lspconfig.ts_ls.setup(capabilities)
+lspconfig.gopls.setup(capabilities)
 
 lspconfig.rust_analyzer.setup({
 	settings = {
