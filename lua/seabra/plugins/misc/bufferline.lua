@@ -8,10 +8,11 @@ return {
 			buffer_close_icon = "",
 			modified_icon = "● ",
 			diagnostics = "nvim_lsp",
-			max_name_length = 18,
+			max_name_length = 15,
 			show_close_icon = false,
 			separator_style = "thick",
 			always_show_bufferline = false,
+			tab_size = 15,
 
 			-- offsets = {
 			-- 	{

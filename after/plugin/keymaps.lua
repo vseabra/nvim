@@ -26,8 +26,8 @@ keymap("n", "q", "<nop>", opts)
 keymap("n", "qq", "q", opts)
 
 -- Navigate buffers
-keymap("n", "<S-l>", ":BufferLineCyclePrev<CR>", opts)
-keymap("n", "<S-h>", ":BufferLineCycleNext<CR>", opts)
+keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
+keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
 
 -- Visual --
 -- Stay in indent mode
