@@ -29,6 +29,17 @@ keymap("n", "qq", "q", opts)
 keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", opts)
 keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", opts)
 
+-- Tab navigation with numbers
+keymap("n", "1", "1gt", opts)
+keymap("n", "2", "2gt", opts)
+keymap("n", "3", "3gt", opts)
+keymap("n", "4", "4gt", opts)
+keymap("n", "5", "5gt", opts)
+keymap("n", "6", "6gt", opts)
+keymap("n", "7", "7gt", opts)
+keymap("n", "8", "8gt", opts)
+keymap("n", "9", "9gt", opts)
+
 -- Visual --
 -- Stay in indent mode
 keymap("x", "<", "<gv", opts)
