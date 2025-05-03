@@ -33,24 +33,24 @@ return {
 			lualine_c = {},
 			lualine_x = { "filetype", { "fileformat", symbols = { unix = "LF", mac = "LF(macOS)", dos = "CRLF" } } },
 			lualine_y = {
-				{
-					"tabs",
-					mode = 0,
-					show_modified_status = false,
-					section_separators = { left = "", right = "" },
-					tabs_color = {
-						-- Same values as the general color option can be used here.
-						active = {
-							bg = colors.everforest.hard_background.dark.green,
-							fg = colors.everforest.hard_background.dark.bg1,
-							gui = "bold",
-						},
-						inactive = {
-							fg = colors.everforest.hard_background.dark.green,
-							bg = colors.everforest.hard_background.dark.bg1,
-						},
-					},
-				},
+				-- {
+				-- 	"tabs",
+				-- 	mode = 0,
+				-- 	show_modified_status = false,
+				-- 	section_separators = { left = "", right = "" },
+				-- 	tabs_color = {
+				-- 		-- Same values as the general color option can be used here.
+				-- 		active = {
+				-- 			bg = colors.everforest.hard_background.dark.green,
+				-- 			fg = colors.everforest.hard_background.dark.bg1,
+				-- 			gui = "bold",
+				-- 		},
+				-- 		inactive = {
+				-- 			fg = colors.everforest.hard_background.dark.green,
+				-- 			bg = colors.everforest.hard_background.dark.bg1,
+				-- 		},
+				-- 	},
+				-- },
 				"progress",
 			},
 			lualine_z = { "location" },

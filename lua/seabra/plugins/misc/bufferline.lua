@@ -11,7 +11,7 @@ return {
 			max_name_length = 15,
 			show_close_icon = false,
 			separator_style = "thick",
-			always_show_bufferline = false,
+			always_show_bufferline = true,
 			tab_size = 15,
 
 			-- offsets = {
