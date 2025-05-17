@@ -18,8 +18,8 @@ return {
 					icons = {
 						corner = "└",
 						edge = "│",
-						none = "",
 						bottom = "─",
+						none = "",
 					},
 				},
 				icons = {

@@ -24,6 +24,7 @@ wk.add({
 	{ "<leader>sn", "<cmd>Easypick npm_scripts<cr>", desc = "search npm command" },
 	{ "<leader>so", "<cmd>Telescope buffers<cr>", desc = "open buffers" },
 	{ "<leader>st", "<cmd>Telescope live_grep<cr>", desc = "search file by text" },
+	{ "<leader>ss", "<cmd>Telescope lsp_workspace_symbols<cr>", desc = "search workspace symbols" },
 	{ "<leader>t", group = "toggles" },
 	{ "<leader>tb", "<cmd>GitBlameToggle<cr>", desc = "git blame" },
 	{ "<leader>td", "<cmd>DBUIToggle<cr>", desc = "database UI" },

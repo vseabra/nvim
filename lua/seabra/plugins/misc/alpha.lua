@@ -19,8 +19,6 @@ return {
       dashboard.button("f", "󰙅   Find file", ":Telescope find_files <CR>"),
       dashboard.button("r", "   Recent", ":Telescope oldfiles<CR>"),
       dashboard.button("c", "   Config", ":e $HOME/.config/nvim/init.lua<CR>"),
-      dashboard.button("t", "𜳩   Typr ", ":Typr<CR>"),
-      dashboard.button("s", "   Typr Stats", ":TyprStats<CR>"),
       dashboard.button("q", "   Quit NVIM", ":qa<CR>"),
 
     }
