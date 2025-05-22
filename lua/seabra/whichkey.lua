@@ -5,6 +5,7 @@ wk.add({
 	{ "<leader>d", group = "debugger" },
 	{ "<leader>dr", "<cmd>lua require('dapui').open({reset = true})<cr>", desc = "reset ui" },
 	{ "<leader>ds", "<cmd>DapContinue<cr>", desc = "start/continue" },
+	{ "<leader>dc", "<cmd>DapContinue<cr>", desc = "start/continue" },
 	{ "<leader>dt", "<cmd>DapToggleBreakpoint<cr>", desc = "toggle breakpoint" },
 	{ "<leader>du", "<cmd>lua require('dapui').toggle()<cr>", desc = "toggle dapUI" },
 	{ "<leader>dx", "<cmd>DapTerminate<cr>", desc = "terminate" },
