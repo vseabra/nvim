@@ -1,45 +1,83 @@
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
+local lspconfig = vim.lsp.config
 
-local lspconfig = require("lspconfig")
+--  _
+-- | |_   _  __ _
+-- | | | | |/ _` |
+-- | | |_| | (_| |
+-- |_|\__,_|\__,_|
 
-lspconfig.lua_ls.setup({
+lspconfig("lua_ls", {
 	settings = {
 		Lua = {
 			runtime = {
-				-- Tell the language server which version of Lua you're using
-				-- (most likely LuaJIT in the case of Neovim)
 				version = "LuaJIT",
 			},
 			diagnostics = {
-				-- Get the language server to recognize the `vim` global
 				globals = {
 					"vim",
 					"require",
 				},
 			},
 			workspace = {
-				-- Make the server aware of Neovim runtime files
 				library = vim.api.nvim_get_runtime_file("", true),
 			},
-			-- Do not send telemetry data containing a randomized but unique identifier
 			telemetry = {
 				enable = false,
 			},
 		},
 	},
 })
+vim.lsp.enable("lua_ls")
 
-lspconfig.svelte.setup({})
+--                _ _
+--  _____   _____| | |_ ___
+-- / __\ \ / / _ \ | __/ _ \
+-- \__ \\ V /  __/ | ||  __/
+-- |___/ \_/ \___|_|\__\___|
 
-lspconfig.jsonls.setup({
+lspconfig("svelte", {})
+vim.lsp.enable("svelte")
+
+--    _
+--   (_)___  ___  _ __
+--   | / __|/ _ \| '_ \
+--   | \__ \ (_) | | | |
+--  _/ |___/\___/|_| |_|
+-- |__/
+
+lspconfig("jsonls", {
 	capabilities = capabilities,
 })
+vim.lsp.enable("jsonls")
 
-lspconfig.ts_ls.setup(capabilities)
-lspconfig.gopls.setup(capabilities)
+--  _                                   _       _
+-- | |_ _   _ _ __   ___  ___  ___ _ __(_)_ __ | |_
+-- | __| | | | '_ \ / _ \/ __|/ __| '__| | '_ \| __|
+-- | |_| |_| | |_) |  __/\__ \ (__| |  | | |_) | |_
+--  \__|\__, | .__/ \___||___/\___|_|  |_| .__/ \__|
+--      |___/|_|                         |_|
 
-lspconfig.rust_analyzer.setup({
+lspconfig("ts_ls", capabilities)
+vim.lsp.enable("ts_ls")
+
+--   __ _  ___
+--  / _` |/ _ \
+-- | (_| | (_) |
+--  \__, |\___/
+--  |___/
+
+lspconfig("gopls", capabilities)
+vim.lsp.enable("gopls")
+
+--                 _
+--  _ __ _   _ ___| |_
+-- | '__| | | / __| __|
+-- | |  | |_| \__ \ |_
+-- |_|   \__,_|___/\__|
+
+lspconfig("rust_analyzer", {
 	settings = {
 		completion = {
 			callable = { snippets = "fill_arguments" },
@@ -63,11 +101,20 @@ lspconfig.rust_analyzer.setup({
 		},
 	},
 })
+vim.lsp.enable("rust_analyzer")
 
-lspconfig.typos_lsp.setup(capabilities)
+--  _
+-- | |_ _   _ _ __   ___  ___
+-- | __| | | | '_ \ / _ \/ __|
+-- | |_| |_| | |_) | (_) \__ \
+--  \__|\__, | .__/ \___/|___/
+--      |___/|_|
 
--- Global mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
+lspconfig("typos_lsp", capabilities)
+vim.lsp.enable("typos_lsp")
+
+-- -- Global mappings.
+-- -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set("n", "gl", vim.diagnostic.open_float)
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next)

@@ -4,9 +4,16 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 require("seabra.options")
-require("seabra.lazy")
-require("lazy").setup({ spec = { { import = "seabra.plugins.core" }, { import = "seabra.plugins.misc" } } })
 
-require("seabra.colorscheme")
-require("seabra.highlights")
-require("seabra.whichkey")
+if not vim.g.vscode then
+	require("seabra.lazy")
+	require("lazy").setup({ spec = { { import = "seabra.plugins.core" }, { import = "seabra.plugins.misc" } } })
+
+	require("seabra.colorscheme")
+	require("seabra.highlights")
+	require("seabra.whichkey")
+end
+
+if vim.g.vscode then
+  vim.opt.runtimepath:remove(vim.fn.stdpath("config") .. "/after")
+end
