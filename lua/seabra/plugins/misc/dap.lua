@@ -6,7 +6,6 @@ return {
 			local dap = require("dap")
 			vim.fn.sign_define('DapBreakpoint', {text='⚑', texthl='red', linehl='', numhl=''})
 			local mason_path = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/")
-			require("dap.ext.vscode").load_launchjs()
 
 			local function get_arguments()
 				return coroutine.create(function(dap_run_coroutine)

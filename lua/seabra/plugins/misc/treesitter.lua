@@ -3,7 +3,7 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		config = function()
-			local configs = require("nvim-treesitter.configs")
+			local configs = require("nvim-treesitter")
 
 			configs.setup({
 				ensure_installed = "all",
@@ -24,12 +24,12 @@ return {
 							["if"] = "@function.inner",
 							["ac"] = "@class.outer",
 							["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
-              ['aa'] = '@parameter.outer', -- argument
-              ['ia'] = '@parameter.inner', -- argument
-              ['ii'] = '@conditional.inner',
-              ['ai'] = '@conditional.outer',
-              ['il'] = '@loop.inner',
-              ['al'] = '@loop.outer',
+							['aa'] = '@parameter.outer', -- argument
+							['ia'] = '@parameter.inner', -- argument
+							['ii'] = '@conditional.inner',
+							['ai'] = '@conditional.outer',
+							['il'] = '@loop.inner',
+							['al'] = '@loop.outer',
 							["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
 						},
 						selection_modes = {
