@@ -102,6 +102,7 @@ lspconfig("rust_analyzer", {
 	},
 })
 vim.lsp.enable("rust_analyzer")
+vim.lsp.enable("clangd")
 
 --  _
 -- | |_ _   _ _ __   ___  ___
