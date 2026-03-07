@@ -4,7 +4,7 @@ return {
 		lazy = true,
 		config = function()
 			local dap = require("dap")
-			vim.fn.sign_define('DapBreakpoint', {text='⚑', texthl='red', linehl='', numhl=''})
+			vim.fn.sign_define("DapBreakpoint", { text = "⚑", texthl = "red", linehl = "", numhl = "" })
 			local mason_path = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/")
 
 			local function get_arguments()
@@ -173,6 +173,43 @@ return {
 					args = get_arguments,
 				},
 			}
+
+			--- C/CPP CONFIG ---
+			dap.configurations.c = {
+				{
+					name = "[launch] codelldb",
+					type = "codelldb",
+					request = "launch",
+					program = function()
+						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+					end,
+					cwd = "${workspaceFolder}",
+					stopOnEntry = false,
+					runInTerminal = true,
+				},
+				{
+					name = "[launch] codelldb - attach to running process",
+					type = "codelldb",
+					request = "attach",
+					pid = get_process_id,
+					cwd = "${workspaceFolder}",
+					stopOnEntry = false,
+					runInTerminal = true,
+				},
+				{
+					name = "[launch] codelldb - with args",
+					type = "codelldb",
+					request = "launch",
+					program = function()
+						-- vim.fn.jobstart("cargo build")
+						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/", "file")
+					end,
+					cwd = "${workspaceFolder}",
+					stopOnEntry = false,
+					args = get_arguments,
+				},
+			}
+			--- END C/CPP CONFIG ---
 		end,
 	},
 	{
