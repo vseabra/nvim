@@ -6,6 +6,7 @@ return {
     },
     build = "make tiktoken",
     opts = {
+      model = 'auto',
     },
   },
 }
